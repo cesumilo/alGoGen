@@ -23,9 +23,9 @@ func (s* Tournament) Init(k int) {
 	s.k = k
 }
 
-func (s *Tournament) Execute(individuals []*shared.Individual, scores []float64, size int) ([]*shared.Individual, error) {
+func (s *Tournament) Execute(individuals shared.Individuals, scores []float64, size int) (shared.Individuals, error) {
 
-	var selectedIndividuals []*shared.Individual
+	var selectedIndividuals shared.Individuals
 
 	if len(individuals) != len(scores) {
 		return nil, tournamentError{fmt.Sprintf("Individuals and scores arrays should have the same size: %i != %i", len(individuals), len(scores))}
@@ -33,13 +33,13 @@ func (s *Tournament) Execute(individuals []*shared.Individual, scores []float64,
 
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 	for i := 0; i < size; i++ {
-		var pool shared.SortFitness
+		var pool shared.Individuals
 		for j := 0; j < s.k; j++ {
 			idx := r.Intn(len(individuals))
-			pool = append(pool, &shared.SortedFitness{idx, scores[idx]})
+			pool = append(pool, individuals[idx])
 		}
 		sort.Sort(pool)
-		selectedIndividuals = append(selectedIndividuals, individuals[pool[s.k - 1].Idx])
+		selectedIndividuals = append(selectedIndividuals, pool[s.k - 1])
 	}
 
 	return selectedIndividuals, nil

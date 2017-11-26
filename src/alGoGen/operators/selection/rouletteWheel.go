@@ -17,9 +17,9 @@ func (err rouletteWheelError) Error() string {
 type RouletteWheel struct {
 }
 
-func (s *RouletteWheel) Execute(individuals []*shared.Individual, scores []float64, size int) ([]*shared.Individual, error) {
+func (s *RouletteWheel) Execute(individuals shared.Individuals, scores []float64, size int) (shared.Individuals, error) {
 
-	var selectedIndividuals []*shared.Individual
+	var selectedIndividuals shared.Individuals
 
 	if len(individuals) != len(scores) {
 		return nil, rouletteWheelError{fmt.Sprintf("Individuals and scores arrays should have the same size: %i != %i", len(individuals), len(scores))}
