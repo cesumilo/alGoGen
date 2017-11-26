@@ -69,7 +69,7 @@ func (p *Population) Run() {
 		}
 
 		selectedIdx := 0
-		offspring := make([]*shared.Individual, totalNumOfOffspring, totalNumOfOffspring)
+		var offspring []*shared.Individual
 		for totalNumOfOffspring > 0 {
 			idv1, idv2 := selectedIndividuals[selectedIdx], selectedIndividuals[selectedIdx + 1]
 
@@ -87,7 +87,7 @@ func (p *Population) Run() {
 		}
 
 		newPopulation := append(offspring, selectedNextIndividuals...)
-		mutatedPopulation := make([]*shared.Individual, len(newPopulation), len(newPopulation))
+		var mutatedPopulation []*shared.Individual
 		for i, v := range newPopulation {
 			var newIndividual *shared.Individual
 
