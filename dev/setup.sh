@@ -2,4 +2,4 @@
 export GOPATH=`pwd`
 
 # Some alias to make life easier!
-alias build="go build ./src/alGoGen"
+alias build="go build ./src"
