@@ -7,7 +7,6 @@ import (
 
 type Settings struct {
 	populationSize int
-	generatedOffspringNumber int
 	offspringProportion float32
 	mutationProbability float32
 }

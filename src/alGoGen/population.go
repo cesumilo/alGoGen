@@ -32,7 +32,6 @@ func (p *Population) Init(settings PopulationSettings) {
 	defer p.errorHandler()
 
 	p.config = settings
-	p.individuals = make([]*shared.Individual, settings.settings.populationSize, settings.settings.populationSize)
 	p.randomGenerator = rand.New(rand.NewSource(time.Now().UnixNano()))
 
 	for i := 0; i < settings.settings.populationSize; i++ {
@@ -40,7 +39,7 @@ func (p *Population) Init(settings PopulationSettings) {
 		if err != nil {
 			panic(err)
 		}
-		p.individuals[i] = idv
+		p.individuals = append(p.individuals, idv)
 	}
 }
 
@@ -57,10 +56,10 @@ func (p *Population) Run() {
 
 		totalNumOfOffspring := int(float32(p.config.settings.populationSize) * p.config.settings.offspringProportion)
 		totalNumOfOffspring = int(math.Min(float64(totalNumOfOffspring), float64(p.config.settings.populationSize)))
-		totalNumOfSelectedMod := totalNumOfOffspring % p.config.settings.generatedOffspringNumber
-		totalNumOfSelected := totalNumOfOffspring / p.config.settings.generatedOffspringNumber
+		totalNumOfSelectedMod := totalNumOfOffspring % 2
+		totalNumOfSelected := totalNumOfOffspring / 2
 		if totalNumOfSelectedMod != 0 {
-			totalNumOfSelected = totalNumOfSelected + totalNumOfSelectedMod * p.config.settings.generatedOffspringNumber
+			totalNumOfSelected = totalNumOfSelected + totalNumOfSelectedMod * 2
 		}
 
 		selectedIndividuals, selectOk := (*p.config.parentSelectionOperator).Execute(p.individuals, fitnessValues, totalNumOfSelected)
@@ -69,7 +68,7 @@ func (p *Population) Run() {
 		}
 
 		selectedIdx := 0
-		var offspring []*shared.Individual
+		var offspring shared.Individuals
 		for totalNumOfOffspring > 0 {
 			idv1, idv2 := selectedIndividuals[selectedIdx], selectedIndividuals[selectedIdx + 1]
 
@@ -78,7 +77,11 @@ func (p *Population) Run() {
 				panic(offspringOk)
 			}
 			offspring = append(offspring, createdOffspring...)
-			totalNumOfOffspring -= p.config.settings.generatedOffspringNumber
+			totalNumOfOffspring -= (*p.config.crossoverOperator).NumberOfOffspring()
+		}
+
+		if totalNumOfOffspring < 0 {
+			offspring = offspring[:len(offspring) - totalNumOfOffspring]
 		}
 
 		selectedNextIndividuals, selectNOk := (*p.config.populationSelectionOperator).Execute(p.individuals, fitnessValues, len(p.individuals) - len(offspring))
@@ -100,7 +103,6 @@ func (p *Population) Run() {
 			} else {
 				newIndividual = v
 			}
-
 			mutatedPopulation = append(mutatedPopulation, newIndividual)
 		}
 

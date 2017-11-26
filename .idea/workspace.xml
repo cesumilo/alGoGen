@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0aea583-2344-4a0e-b99b-41e6f5e44180" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/alGoGen/operators/selection/rouletteWheel.go" afterPath="$PROJECT_DIR$/src/alGoGen/operators/selection/rouletteWheel.go" />
-      <change beforePath="$PROJECT_DIR$/src/alGoGen/operators/selection/tournament.go" afterPath="$PROJECT_DIR$/src/alGoGen/operators/selection/tournament.go" />
+      <change beforePath="$PROJECT_DIR$/src/alGoGen/operators/crossover.go" afterPath="$PROJECT_DIR$/src/alGoGen/operators/crossover.go" />
+      <change beforePath="$PROJECT_DIR$/src/alGoGen/population.go" afterPath="$PROJECT_DIR$/src/alGoGen/population.go" />
+      <change beforePath="$PROJECT_DIR$/src/alGoGen/settings.go" afterPath="$PROJECT_DIR$/src/alGoGen/settings.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="population.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="population.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/alGoGen/population.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="495">
-              <caret line="80" column="33" lean-forward="false" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
+            <state relative-caret-position="855">
+              <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
               <folding>
                 <element signature="e#17#102#0" expanded="true" />
               </folding>
@@ -26,13 +27,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tournament.go" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/alGoGen/operators/selection/tournament.go">
+      <file leaf-file-name="elitism.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/alGoGen/operators/selection/elitism.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="180">
+              <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
               <folding>
-                <element signature="e#19#83#0" expanded="true" />
+                <element signature="e#19#62#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="crossover.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/alGoGen/operators/crossover.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+              <folding>
+                <element signature="e#19#47#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fitness.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/alGoGen/operators/fitness.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding>
+                <element signature="e#19#47#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -65,21 +90,21 @@
         <option value="$PROJECT_DIR$/src/alGoGen/main.go" />
         <option value="$PROJECT_DIR$/src/main.go" />
         <option value="$PROJECT_DIR$/src/alGoGen/individual.go" />
-        <option value="$PROJECT_DIR$/src/alGoGen/settings.go" />
         <option value="$PROJECT_DIR$/src/alGoGen/operators/stoppingCriterion.go" />
         <option value="$PROJECT_DIR$/src/alGoGen/errors.go" />
         <option value="$PROJECT_DIR$/src/alGoGen/operators/createIndividual.go" />
         <option value="$PROJECT_DIR$/src/alGoGen/operators/mutation.go" />
         <option value="$PROJECT_DIR$/src/alGoGen/shared/sortedFitness.go" />
         <option value="$PROJECT_DIR$/src/alGoGen/shared/individual.go" />
-        <option value="$PROJECT_DIR$/src/alGoGen/population.go" />
         <option value="$PROJECT_DIR$/src/alGoGen/operators/selection/elitism.go" />
-        <option value="$PROJECT_DIR$/src/alGoGen/operators/crossover.go" />
         <option value="$PROJECT_DIR$/src/alGoGen/operators/fitness.go" />
         <option value="$PROJECT_DIR$/src/alGoGen/operators/parentSelection.go" />
         <option value="$PROJECT_DIR$/src/alGoGen/operators/populationSelection.go" />
         <option value="$PROJECT_DIR$/src/alGoGen/operators/selection/rouletteWheel.go" />
         <option value="$PROJECT_DIR$/src/alGoGen/operators/selection/tournament.go" />
+        <option value="$PROJECT_DIR$/src/alGoGen/operators/crossover.go" />
+        <option value="$PROJECT_DIR$/src/alGoGen/settings.go" />
+        <option value="$PROJECT_DIR$/src/alGoGen/population.go" />
       </list>
     </option>
   </component>
@@ -305,9 +330,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="44" column="34" lean-forward="false" selection-start-line="44" selection-start-column="34" selection-end-line="44" selection-end-column="34" />
-          <folding>
-            <element signature="e#19#83#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -342,16 +365,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.go" />
-    <entry file="file://$PROJECT_DIR$/src/alGoGen/settings.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-          <folding>
-            <element signature="e#17#50#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -376,40 +389,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/alGoGen/population.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="80" column="33" lean-forward="false" selection-start-line="80" selection-start-column="33" selection-end-line="80" selection-end-column="33" />
-          <folding>
-            <element signature="e#17#102#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/alGoGen/operators/createIndividual.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="25" lean-forward="false" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
-          <folding>
-            <element signature="e#19#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alGoGen/operators/crossover.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#19#47#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/alGoGen/operators/fitness.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="e#19#47#0" expanded="true" />
           </folding>
@@ -460,16 +443,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/alGoGen/operators/selection/elitism.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-          <folding>
-            <element signature="e#19#62#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/alGoGen/operators/selection/rouletteWheel.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -482,10 +455,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/alGoGen/operators/selection/tournament.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alGoGen/operators/fitness.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding>
-            <element signature="e#19#83#0" expanded="true" />
+            <element signature="e#19#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alGoGen/settings.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alGoGen/operators/crossover.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="26" lean-forward="false" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <folding>
+            <element signature="e#19#47#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alGoGen/operators/selection/elitism.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="21" lean-forward="false" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+          <folding>
+            <element signature="e#19#62#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alGoGen/population.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
+          <folding>
+            <element signature="e#17#102#0" expanded="true" />
           </folding>
         </state>
       </provider>
