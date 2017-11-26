@@ -5,5 +5,5 @@ import (
 )
 
 type Crossover interface {
-	Execute(*shared.Individual, *shared.Individual, int) ([]*shared.Individual, error)
+	Execute(*shared.Individual, *shared.Individual, int) (shared.Individuals, error)
 }

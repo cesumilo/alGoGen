@@ -10,7 +10,7 @@ import (
 )
 
 type Population struct {
-	individuals []*shared.Individual
+	individuals shared.Individuals
 	fitnessValues []float64
 	config PopulationSettings
 	randomGenerator *rand.Rand
