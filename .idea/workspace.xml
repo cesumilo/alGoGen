@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a0aea583-2344-4a0e-b99b-41e6f5e44180" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/alGoGen/operators/createIndividual.go" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/alGoGen/operators/crossover.go" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/alGoGen/operators/fitness.go" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/alGoGen/operators/mutation.go" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/alGoGen/operators/parentSelection.go" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/alGoGen/operators/populationSelection.go" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/alGoGen/operators/stoppingCriterion.go" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/alGoGen/population.go" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/alGoGen/settings.go" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/alGoGen/shared/individual.go" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/build/alGoGen" afterPath="$PROJECT_DIR$/build/alGoGen" />
-      <change beforePath="$PROJECT_DIR$/src/alGoGen/main.go" afterPath="" />
-    </list>
+    <list default="true" id="a0aea583-2344-4a0e-b99b-41e6f5e44180" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
