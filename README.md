@@ -16,12 +16,22 @@ A framework coded in Go for Genetic Algorithm.
 ## Generics
 ### Genetic Algorithm
 - Population
+    - Generates individuals
+    - Evolves population using operators
 - Individual
+    - Fitness value
+    - Identifier
+    - Genotype
 - Operators:
     - Fitness
+        - Returns list of fitness value of individuals
     - Selection
+        - Selects enough individual to create next population 
     - Crossover
+        - Generates offspring using selected individuals
     - Mutation
+        - Mutates individuals
+        - Mutation probability
 
 ### Input/Output
 - Logging
