@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0aea583-2344-4a0e-b99b-41e6f5e44180" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/alGoGen/operators/selection/elitism.go" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/alGoGen/operators/createIndividual.go" afterPath="$PROJECT_DIR$/src/alGoGen/operators/createIndividual.go" />
-      <change beforePath="$PROJECT_DIR$/src/alGoGen/operators/crossover.go" afterPath="$PROJECT_DIR$/src/alGoGen/operators/crossover.go" />
-      <change beforePath="$PROJECT_DIR$/src/alGoGen/operators/fitness.go" afterPath="$PROJECT_DIR$/src/alGoGen/operators/fitness.go" />
-      <change beforePath="$PROJECT_DIR$/src/alGoGen/operators/mutation.go" afterPath="$PROJECT_DIR$/src/alGoGen/operators/mutation.go" />
-      <change beforePath="$PROJECT_DIR$/src/alGoGen/operators/parentSelection.go" afterPath="$PROJECT_DIR$/src/alGoGen/operators/parentSelection.go" />
-      <change beforePath="$PROJECT_DIR$/src/alGoGen/operators/populationSelection.go" afterPath="$PROJECT_DIR$/src/alGoGen/operators/populationSelection.go" />
       <change beforePath="$PROJECT_DIR$/src/alGoGen/population.go" afterPath="$PROJECT_DIR$/src/alGoGen/population.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="population.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="population.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/alGoGen/population.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="315">
+              <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
               <folding>
                 <element signature="e#17#102#0" expanded="true" />
               </folding>
@@ -32,32 +27,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="individual.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/alGoGen/shared/individual.go">
+      <file leaf-file-name="elitism.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/alGoGen/operators/selection/elitism.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="285">
+              <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+              <folding>
+                <element signature="e#19#62#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="663">
-                <caret line="65" column="0" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
-                <folding>
-                  <marker date="1511643493867" expanded="true" signature="980:1040" ph="{...}" />
-                  <marker date="1511643493867" expanded="true" signature="1104:1146" ph="..." />
-                  <marker date="1511643493867" expanded="true" signature="1174:1221" ph="{...}" />
-                  <marker date="1511643493867" expanded="true" signature="1235:1512" ph="{...}" />
-                  <marker date="1511643493867" expanded="true" signature="1235:1514" ph="{...}" />
-                  <marker date="1511643493867" expanded="true" signature="1407:1449" ph="{...}" />
-                </folding>
-              </first_editor>
-              <second_editor />
+      <file leaf-file-name="parentSelection.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/alGoGen/operators/parentSelection.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="75">
+              <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -99,6 +86,7 @@
         <option value="$PROJECT_DIR$/src/alGoGen/operators/parentSelection.go" />
         <option value="$PROJECT_DIR$/src/alGoGen/operators/populationSelection.go" />
         <option value="$PROJECT_DIR$/src/alGoGen/population.go" />
+        <option value="$PROJECT_DIR$/src/alGoGen/operators/selection/elitism.go" />
       </list>
     </option>
   </component>
@@ -151,13 +139,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="alGoGen" type="462c0819:PsiDirectoryNode" />
               <item name="operators" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="alGoGen" type="b2602c69:ProjectViewProjectNode" />
-              <item name="alGoGen" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="alGoGen" type="462c0819:PsiDirectoryNode" />
-              <item name="shared" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="alGoGen" type="b2602c69:ProjectViewProjectNode" />
@@ -215,8 +196,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1015" height="1050" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20985222" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20985222" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -380,17 +362,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/alGoGen/operators/parentSelection.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="77" lean-forward="false" selection-start-line="7" selection-start-column="77" selection-end-line="7" selection-end-column="77" />
-          <folding>
-            <element signature="e#19#47#0" expanded="true" />
-            <marker date="1511656003222" expanded="true" signature="29:45" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/alGoGen/operators/populationSelection.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -450,10 +421,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/alGoGen/population.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="315">
+          <caret line="21" column="31" lean-forward="false" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
           <folding>
             <element signature="e#17#102#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alGoGen/operators/parentSelection.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/alGoGen/operators/selection/elitism.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+          <folding>
+            <element signature="e#19#62#0" expanded="true" />
           </folding>
         </state>
       </provider>

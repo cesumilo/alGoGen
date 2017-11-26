@@ -40,7 +40,6 @@ func (p *Population) Init(settings PopulationSettings) {
 		if err != nil {
 			panic(err)
 		}
-
 		p.individuals[i] = idv
 	}
 }
