@@ -13,26 +13,8 @@ func (err elitismError) Error() string {
 	return err.message
 }
 
-type sortedFitness struct {
-	idx int
-	score float64
-}
-
-type SortFitness []*sortedFitness
-func (a SortFitness) Len() int {
-	return len(a)
-}
-func (a SortFitness) Swap(i, j int) {
-	tmp := a[i]
-	a[i] = a[j]
-	a[j] = tmp
-}
-func (a SortFitness) Less(i, j int) bool {
-	return a[i].score < a[j].score
-}
-
 type Elitism struct {
-	fitness SortFitness
+	fitness shared.SortFitness
 }
 
 func (s *Elitism) Execute(individuals []*shared.Individual, scores []float64, size int) ([]*shared.Individual, error) {
@@ -41,20 +23,20 @@ func (s *Elitism) Execute(individuals []*shared.Individual, scores []float64, si
 		return nil, elitismError{fmt.Sprintf("Individuals and scores arrays should have the same size: %i != %i", len(individuals), len(scores))}
 	}
 
-	s.fitness = make(SortFitness, len(individuals), len(individuals))
+	s.fitness = make(shared.SortFitness, len(individuals), len(individuals))
 	for i, v := range scores {
-		s.fitness[i] = &sortedFitness{i, v}
+		s.fitness[i] = &shared.SortedFitness{i, v}
 	}
 	sort.Sort(s.fitness)
 
 	var selectedIndividuals []*shared.Individual
 	i := 0
 	for i < size {
-		j := 0
-		for j < len(s.fitness) && i < size {
-			selectedIndividuals = append(selectedIndividuals, individuals[s.fitness[j].idx])
+		j := len(s.fitness) - 1
+		for j >= 0  && i < size {
+			selectedIndividuals = append(selectedIndividuals, individuals[s.fitness[j].Idx])
 			i++
-			j++
+			j--
 		}
 	}
 
