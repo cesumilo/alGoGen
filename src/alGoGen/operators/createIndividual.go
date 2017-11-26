@@ -5,5 +5,5 @@ import (
 )
 
 type CreateIndividual interface {
-	Execute(int) (*shared.Individual, bool)
+	Execute(int) (*shared.Individual, error)
 }

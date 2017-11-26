@@ -6,6 +6,7 @@ import (
 	"time"
 	"alGoGen/operators"
 	"alGoGen/shared"
+	"log"
 )
 
 type Population struct {
@@ -28,14 +29,16 @@ type PopulationSettings struct {
 }
 
 func (p *Population) Init(settings PopulationSettings) {
+	defer p.errorHandler()
+
 	p.config = settings
 	p.individuals = make([]*shared.Individual, settings.settings.populationSize, settings.settings.populationSize)
 	p.randomGenerator = rand.New(rand.NewSource(time.Now().UnixNano()))
 
 	for i := 0; i < settings.settings.populationSize; i++ {
-		idv, ok := (*settings.createIndividualOperator).Execute(i)
-		if (!ok) {
-			// TODO: error handling
+		idv, err := (*settings.createIndividualOperator).Execute(i)
+		if err != nil {
+			panic(err)
 		}
 
 		p.individuals[i] = idv
@@ -43,13 +46,14 @@ func (p *Population) Init(settings PopulationSettings) {
 }
 
 func (p *Population) Run() {
-	i := 0
+	defer p.errorHandler()
 
+	i := 0
 	for (*p.config.stoppingCriteria).Execute(i, p.fitnessValues) {
 
 		fitnessValues, fitnessOk := (*p.config.fitnessOperator).Execute(p.individuals)
-		if (!fitnessOk) {
-			// TODO: error handling
+		if fitnessOk != nil {
+			panic(fitnessOk)
 		}
 
 		totalNumOfOffspring := int(float32(p.config.settings.populationSize) * p.config.settings.offspringProportion)
@@ -61,37 +65,37 @@ func (p *Population) Run() {
 		}
 
 		selectedIndividuals, selectOk := (*p.config.parentSelectionOperator).Execute(p.individuals, fitnessValues, totalNumOfSelected)
-		if (!selectOk) {
-			// TODO: error handling
+		if selectOk != nil {
+			panic(selectOk)
 		}
 
 		selectedIdx := 0
-		offsprings := make([]*shared.Individual, totalNumOfOffspring, totalNumOfOffspring)
+		offspring := make([]*shared.Individual, totalNumOfOffspring, totalNumOfOffspring)
 		for totalNumOfOffspring > 0 {
 			idv1, idv2 := selectedIndividuals[selectedIdx], selectedIndividuals[selectedIdx + 1]
 
-			createdOffsprings, offspringOk := (*p.config.crossoverOperator).Execute(idv1, idv2, p.config.settings.generatedOffspringNumber)
-			if (!offspringOk) {
-				// TODO: error handling
+			createdOffspring, offspringOk := (*p.config.crossoverOperator).Execute(idv1, idv2, p.config.settings.generatedOffspringNumber)
+			if offspringOk != nil {
+				panic(offspringOk)
 			}
-			offsprings = append(offsprings, createdOffsprings...)
+			offspring = append(offspring, createdOffspring...)
 			totalNumOfOffspring -= p.config.settings.generatedOffspringNumber
 		}
 
-		selectedNextIndividuals, selectNOk := (*p.config.populationSelectionOperator).Execute(p.individuals, fitnessValues, len(p.individuals) - len(offsprings))
-		if (!selectNOk) {
-			// TODO: error handling
+		selectedNextIndividuals, selectNOk := (*p.config.populationSelectionOperator).Execute(p.individuals, fitnessValues, len(p.individuals) - len(offspring))
+		if selectNOk != nil {
+			panic(selectNOk)
 		}
 
-		newPopulation := append(offsprings, selectedNextIndividuals...)
+		newPopulation := append(offspring, selectedNextIndividuals...)
 		mutatedPopulation := make([]*shared.Individual, len(newPopulation), len(newPopulation))
 		for i, v := range newPopulation {
 			var newIndividual *shared.Individual
 
 			if p.randomGenerator.Float32() <= p.config.settings.mutationProbability {
 				newIdv, mutationOk := (*p.config.mutationOperator).Execute(v, i)
-				if (!mutationOk) {
-					// TODO: error handling
+				if mutationOk != nil {
+					panic(mutationOk)
 				}
 				newIndividual = newIdv
 			} else {
@@ -103,5 +107,11 @@ func (p *Population) Run() {
 
 		p.individuals = mutatedPopulation
 		i++
+	}
+}
+
+func (p *Population) errorHandler() {
+	if r := recover(); r != nil {
+		log.Print(r)
 	}
 }

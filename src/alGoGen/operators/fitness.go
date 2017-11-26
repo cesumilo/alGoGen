@@ -5,5 +5,5 @@ import (
 )
 
 type Fitness interface {
-	Execute([]*shared.Individual) ([]float64, bool)
+	Execute([]*shared.Individual) ([]float64, error)
 }
