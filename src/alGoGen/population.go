@@ -72,12 +72,13 @@ func (p *Population) Run() {
 		for totalNumOfOffspring > 0 {
 			idv1, idv2 := selectedIndividuals[selectedIdx], selectedIndividuals[selectedIdx + 1]
 
-			createdOffspring, offspringOk := (*p.config.crossoverOperator).Execute(idv1, idv2, p.config.settings.generatedOffspringNumber)
+			createdOffspring, offspringOk := (*p.config.crossoverOperator).Execute(idv1, idv2)
 			if offspringOk != nil {
 				panic(offspringOk)
 			}
 			offspring = append(offspring, createdOffspring...)
 			totalNumOfOffspring -= (*p.config.crossoverOperator).NumberOfOffspring()
+			selectedIdx += 2
 		}
 
 		if totalNumOfOffspring < 0 {

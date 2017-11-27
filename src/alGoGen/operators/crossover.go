@@ -5,6 +5,6 @@ import (
 )
 
 type Crossover interface {
-	Execute(*shared.Individual, *shared.Individual, int) (shared.Individuals, error)
+	Execute(*shared.Individual, *shared.Individual) (shared.Individuals, error)
 	NumberOfOffspring() int
 }
