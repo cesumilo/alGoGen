@@ -81,7 +81,7 @@ func (p *Population) Run() {
 		}
 
 		if totalNumOfOffspring < 0 {
-			offspring = offspring[:len(offspring) - totalNumOfOffspring]
+			offspring = offspring[:len(offspring) + totalNumOfOffspring]
 		}
 
 		selectedNextIndividuals, selectNOk := (*p.config.populationSelectionOperator).Execute(p.individuals, len(p.individuals) - len(offspring))
