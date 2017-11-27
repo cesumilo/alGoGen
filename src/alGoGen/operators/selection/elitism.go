@@ -15,11 +15,11 @@ func (s *Elitism) Execute(individuals shared.Individuals, size int) (shared.Indi
 	var selectedIndividuals shared.Individuals
 	i := 0
 	for i < size {
-		j := len(individuals) - 1
-		for j >= 0  && i < size {
+		j := 0
+		for j < len(individuals)  && i < size {
 			selectedIndividuals = append(selectedIndividuals, individuals[j])
 			i++
-			j--
+			j++
 		}
 	}
 

@@ -6,9 +6,9 @@ import (
 )
 
 type Settings struct {
-	populationSize int
-	offspringProportion float32
-	mutationProbability float32
+	PopulationSize int
+	OffspringProportion float32
+	MutationProbability float32
 }
 
 func LoadSettings(filename string) *Settings {

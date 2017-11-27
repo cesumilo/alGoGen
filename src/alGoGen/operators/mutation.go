@@ -5,5 +5,5 @@ import (
 )
 
 type Mutation interface {
-	Execute(*shared.Individual, int) (*shared.Individual, error)
+	Execute(*shared.Individual) (*shared.Individual, error)
 }

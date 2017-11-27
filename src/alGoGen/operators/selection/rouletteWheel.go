@@ -20,14 +20,19 @@ func (s *RouletteWheel) Execute(individuals shared.Individuals, size int) (share
 	}
 
 	for i := 0; i < size; i++ {
-		value := r.Float64() * totalFitness
+		value :=  r.Float64() * totalFitness
 		j := 0
 		sum := float64(0)
 		for j < len(individuals) && sum < value {
-			j++
 			sum += (*individuals[j]).Fitness()
+			j++
 		}
-		selectedIndividuals = append(selectedIndividuals, individuals[j])
+
+		if j != len(individuals) {
+			selectedIndividuals = append(selectedIndividuals, individuals[j])
+		} else {
+			selectedIndividuals = append(selectedIndividuals, individuals[j - 1])
+		}
 	}
 
 	return selectedIndividuals, nil

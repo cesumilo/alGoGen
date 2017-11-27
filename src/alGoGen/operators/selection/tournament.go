@@ -27,7 +27,7 @@ func (s *Tournament) Execute(individuals shared.Individuals, size int) (shared.I
 			pool = append(pool, individuals[idx])
 		}
 		sort.Sort(pool)
-		selectedIndividuals = append(selectedIndividuals, pool[s.k - 1])
+		selectedIndividuals = append(selectedIndividuals, pool[0])
 	}
 
 	return selectedIndividuals, nil
