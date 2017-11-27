@@ -1,5 +1,9 @@
 package operators
 
+import (
+	"alGoGen/shared"
+)
+
 type StoppingCriterion interface {
-	Execute(int, []float64) bool
+	Execute(int, shared.Individuals) bool
 }

@@ -5,5 +5,5 @@ import (
 )
 
 type PopulationSelection interface {
-	Execute(shared.Individuals, []float64, int) (shared.Individuals, error)
+	Execute(shared.Individuals, int) (shared.Individuals, error)
 }

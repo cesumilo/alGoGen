@@ -11,7 +11,6 @@ import (
 
 type Population struct {
 	individuals shared.Individuals
-	fitnessValues []float64
 	config PopulationSettings
 	randomGenerator *rand.Rand
 }
@@ -47,9 +46,9 @@ func (p *Population) Run() {
 	defer p.errorHandler()
 
 	i := 0
-	for (*p.config.stoppingCriteria).Execute(i, p.fitnessValues) {
+	for (*p.config.stoppingCriteria).Execute(i, p.individuals) {
 
-		fitnessValues, fitnessOk := (*p.config.fitnessOperator).Execute(p.individuals)
+		fitnessOk := (*p.config.fitnessOperator).Execute(p.individuals)
 		if fitnessOk != nil {
 			panic(fitnessOk)
 		}
@@ -62,7 +61,7 @@ func (p *Population) Run() {
 			totalNumOfSelected = totalNumOfSelected + totalNumOfSelectedMod * 2
 		}
 
-		selectedIndividuals, selectOk := (*p.config.parentSelectionOperator).Execute(p.individuals, fitnessValues, totalNumOfSelected)
+		selectedIndividuals, selectOk := (*p.config.parentSelectionOperator).Execute(p.individuals, totalNumOfSelected)
 		if selectOk != nil {
 			panic(selectOk)
 		}
@@ -85,7 +84,7 @@ func (p *Population) Run() {
 			offspring = offspring[:len(offspring) - totalNumOfOffspring]
 		}
 
-		selectedNextIndividuals, selectNOk := (*p.config.populationSelectionOperator).Execute(p.individuals, fitnessValues, len(p.individuals) - len(offspring))
+		selectedNextIndividuals, selectNOk := (*p.config.populationSelectionOperator).Execute(p.individuals, len(p.individuals) - len(offspring))
 		if selectNOk != nil {
 			panic(selectNOk)
 		}

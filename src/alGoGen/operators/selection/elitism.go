@@ -1,26 +1,14 @@
 package selection
 
 import (
-	"fmt"
 	"alGoGen/shared"
 	"sort"
 )
 
-type elitismError struct {
-	message string
-}
-func (err elitismError) Error() string {
-	return err.message
-}
-
 type Elitism struct {
 }
 
-func (s *Elitism) Execute(individuals shared.Individuals, scores []float64, size int) (shared.Individuals, error) {
-
-	if len(individuals) != len(scores) {
-		return nil, elitismError{fmt.Sprintf("Individuals and scores arrays should have the same size: %i != %i", len(individuals), len(scores))}
-	}
+func (s *Elitism) Execute(individuals shared.Individuals, size int) (shared.Individuals, error) {
 
 	sort.Sort(individuals)
 
