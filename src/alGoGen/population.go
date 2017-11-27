@@ -6,7 +6,6 @@ import (
 	"time"
 	"alGoGen/operators"
 	"alGoGen/shared"
-	"log"
 	"sort"
 )
 
@@ -33,10 +32,14 @@ type PopulationSettings struct {
 	ParentSelectionOperator operators.ParentSelection
 	PopulationSelectionOperator operators.PopulationSelection
 	MutationOperator operators.Mutation
+
+	FitnessStatisticsOperator operators.Statistics
+	ParentStatisticsOperator operators.Statistics
+	OffspringStatisticsOperator operators.Statistics
+	SelectionStatisticsOperator operators.Statistics
 }
 
 func (p *Population) Init(settings PopulationSettings) {
-	defer p.errorHandler()
 
 	switch {
 	case settings.StoppingCriteria == nil:
@@ -68,13 +71,16 @@ func (p *Population) Init(settings PopulationSettings) {
 }
 
 func (p *Population) Run() {
-	//defer p.errorHandler()
 
 	i := 0
 
 	fitnessOk := p.config.FitnessOperator.Execute(p.individuals)
 	if fitnessOk != nil {
 		panic(fitnessOk)
+	}
+
+	if p.config.FitnessStatisticsOperator != nil {
+		p.config.FitnessStatisticsOperator.Compute(p.individuals)
 	}
 
 	for !p.config.StoppingCriteria.Execute(i, p.individuals) {
@@ -92,6 +98,10 @@ func (p *Population) Run() {
 		selectedIndividuals, selectOk := p.config.ParentSelectionOperator.Execute(p.individuals, totalNumOfSelected)
 		if selectOk != nil {
 			panic(selectOk)
+		}
+
+		if p.config.ParentStatisticsOperator != nil {
+			p.config.ParentStatisticsOperator.Compute(selectedIndividuals)
 		}
 
 		selectedIdx := 0
@@ -112,9 +122,17 @@ func (p *Population) Run() {
 			offspring = offspring[:len(offspring) + totalNumOfOffspring]
 		}
 
+		if p.config.OffspringStatisticsOperator != nil {
+			p.config.OffspringStatisticsOperator.Compute(offspring)
+		}
+
 		selectedNextIndividuals, selectNOk := p.config.PopulationSelectionOperator.Execute(p.individuals, len(p.individuals) - len(offspring))
 		if selectNOk != nil {
 			panic(selectNOk)
+		}
+
+		if p.config.SelectionStatisticsOperator != nil {
+			p.config.SelectionStatisticsOperator.Compute(selectedNextIndividuals)
 		}
 
 		newPopulation := append(offspring, selectedNextIndividuals...)
@@ -141,6 +159,10 @@ func (p *Population) Run() {
 			panic(fitnessOk)
 		}
 
+		if p.config.FitnessStatisticsOperator != nil {
+			p.config.FitnessStatisticsOperator.Compute(p.individuals)
+		}
+
 		i++
 	}
 }
@@ -152,10 +174,4 @@ func (p *Population) GetIndividuals() shared.Individuals {
 func (p *Population) GetBestIndividual() *shared.Individual {
 	sort.Sort(p.individuals)
 	return p.individuals[0]
-}
-
-func (p *Population) errorHandler() {
-	if r := recover(); r != nil {
-		log.Print(r)
-	}
 }
