@@ -30,7 +30,11 @@ func main() {
 		&Crossover{},
 		&parentSelector,
 		&popSelector,
-		&Mutation{}}
+		&Mutation{},
+		nil,
+		nil,
+		nil,
+		nil}
 
 	pop.Init(config)
 	pop.Run()
