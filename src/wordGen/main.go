@@ -37,12 +37,13 @@ func main() {
 		nil}
 
 	pop.Init(config)
-	pop.Run()
+	numOfEpochs := pop.Run()
 	bestIndividual := pop.GetBestIndividual()
 	word, ok := (*bestIndividual).(*Word)
 	if !ok {
 		log.Fatal("Invalid best individual type!")
 	}
+	fmt.Printf("Number of epochs: %d\n", numOfEpochs)
 	fmt.Printf("Best Genotype (%f): ", word.fitness)
 	fmt.Println(word.GetGenotype())
 }
